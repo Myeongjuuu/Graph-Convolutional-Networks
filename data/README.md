@@ -97,7 +97,7 @@ adj, features, labels, idx_train, idx_val, idx_test = load_data(path="./data/cor
 
 ## Reference
 
-Original source: [Cora Dataset](http://www.research.whizbang.com/data](https://graphsandnetworks.com/the-cora-dataset/))
+Original source: [Cora Dataset](https://graphsandnetworks.com/the-cora-dataset/)
 
 ---
 📁 **Files Required**
