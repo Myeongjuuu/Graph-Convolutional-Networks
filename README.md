@@ -1,15 +1,15 @@
 # Graph Convolutional Networks (GCN)
 
 This is an implementation of **Graph Convolutional Networks (GCNs)** for node classification on the **Cora citation dataset**.
-
 ---
 
-## 🔨 Setup
+## Setup
 Before running the code, make sure you have installed all required dependencies.
 You can easily install them using the provided 'requirements.txt' file:
 ```commandline
 pip install -r requirements.txt
-``` 
+```
+> This code is tested with Python 3.11.9
 ---
 
 ## Dataset: Cora
