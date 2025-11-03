@@ -1,8 +1,4 @@
-# ================================================================
-# preprocessing.py
-# ------------------------------------------------
 # Load and preprocess the Cora dataset for GCN
-# ================================================================
 
 import numpy as np
 import scipy.sparse as sp
@@ -63,12 +59,12 @@ def load_data(path="./data/", dataset="cora"):
     """Load citation network dataset (Cora only for now)."""
     print(f"Loading {dataset} dataset...")
 
-    # 1️⃣ Load cora.content
+    # Load cora.content
     idx_features_labels = np.genfromtxt(f"{path}{dataset}.content", dtype=np.dtype(str))
     features = sp.csr_matrix(idx_features_labels[:, 1:-1], dtype=np.float32)
     labels = encode_onehot(idx_features_labels[:, -1])
 
-    # 2️⃣ Load cora.cites
+    # Load cora.cites
     idx = np.array(idx_features_labels[:, 0], dtype=np.int32)
     idx_map = {j: i for i, j in enumerate(idx)}
     edges_unordered = np.genfromtxt(f"{path}{dataset}.cites", dtype=np.int32)
@@ -78,19 +74,19 @@ def load_data(path="./data/", dataset="cora"):
                         shape=(labels.shape[0], labels.shape[0]),
                         dtype=np.float32)
 
-    # 3️⃣ Make the graph symmetric
+    # Make the graph symmetric
     adj = adj + adj.T.multiply(adj.T > adj) - adj.multiply(adj.T > adj)
 
-    # 4️⃣ Normalize features and adjacency
+    # Normalize features and adjacency
     features = normalize(features)
     adj = normalize(adj + sp.eye(adj.shape[0]))
 
-    # 5️⃣ Split indices
+    # Split indices
     idx_train = range(140)
     idx_val = range(200, 500)
     idx_test = range(500, 1500)
 
-    # 6️⃣ Convert to tensors
+    # Convert to tensors
     features = torch.FloatTensor(np.array(features.todense()))
     labels = torch.LongTensor(np.where(labels)[1])
     adj = sparse_mx_to_torch_sparse_tensor(adj)
@@ -98,7 +94,7 @@ def load_data(path="./data/", dataset="cora"):
     idx_val = torch.LongTensor(idx_val)
     idx_test = torch.LongTensor(idx_test)
 
-    # 7️⃣ Return tensors
+    # Return tensors
     print("-> Dataset loaded successfully!")
     print("Adjacency shape:", adj.shape)
     print("Feature shape:", features.shape)
@@ -109,5 +105,4 @@ def load_data(path="./data/", dataset="cora"):
 
 
 if __name__ == "__main__":
-    # Run this file directly to test data loading
     load_data()
