@@ -4,6 +4,14 @@ This is an implementation of **Graph Convolutional Networks (GCNs)** for node cl
 
 ---
 
+## 🔨 Setup
+Before running the code, make sure you have installed all required dependencies.
+You can easily install them using the provided 'requirements.txt' file:
+```commandline
+pip install -r requirements.txt
+``` 
+---
+
 ## Dataset: Cora
 
 - **Nodes:** Scientific publications  
