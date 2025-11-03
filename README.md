@@ -1,6 +1,5 @@
 # Graph Convolutional Networks (GCN)
-
-This is an implementation of **Graph Convolutional Networks (GCNs)** for node classification on the **Cora citation dataset**.
+- This is an implementation of **Graph Convolutional Networks (GCNs)** for node classification on the **Cora citation dataset**.
 ---
 
 ## Setup
