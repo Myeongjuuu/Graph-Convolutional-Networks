@@ -77,24 +77,6 @@ means **paper2 cites paper1**.
 
 ---
 
-## Usage Example
-
-Example code to load the dataset:
-
-```python
-from utils import load_data
-
-adj, features, labels, idx_train, idx_val, idx_test = load_data(path="./data/cora/", dataset="cora")
-```
-
-**Returned objects:**
-- `adj` → adjacency matrix (graph structure)  
-- `features` → node feature matrix  
-- `labels` → class labels  
-- `idx_train`, `idx_val`, `idx_test` → index splits for training, validation, and testing  
-
----
-
 ## Reference
 
 Original source: [Cora Dataset](https://graphsandnetworks.com/the-cora-dataset/)
